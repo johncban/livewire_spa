@@ -12,7 +12,6 @@ module Api
         @user = User.find(params[:id])
         Rails.logger.info current_user.inspect
         render json: @user, serializer: UserSerializer
-        #p @user.to_json
       end
   
       def create
@@ -34,7 +33,6 @@ module Api
       end
   
       def destroy
-  
         @user.destroy
       end
   
