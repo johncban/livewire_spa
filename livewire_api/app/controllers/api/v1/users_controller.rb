@@ -4,9 +4,15 @@ class Api::V1::UsersController < ApplicationController
 
   # GET /users
   def index
+    #@users = User.all
+    #p @users
+    #render json: @users
     @users = User.all
-    p @users
-    render json: @users
+    if current_user
+      render json: @users
+    else 
+      p "invalid user"
+    end    
   end
 
   # GET /users/1
