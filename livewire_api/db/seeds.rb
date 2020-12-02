@@ -6,9 +6,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 user = User.create(
-    name: 'John Doe',
+    username: 'John Doe',
     email: 'jd@jd.com', 
     password: 'jd123456',
     password_confirmation: 'jd123456'
-  )
+)
 user.save!
+
+
+#portfolio = Portfolio.create(
+#    portfolio_name: 'Technology'
+#)
+#portfolio.save!

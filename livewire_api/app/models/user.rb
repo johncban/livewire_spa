@@ -1,12 +1,6 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-
-  alias_method :authenticate, :valid_password?
-
-  def self.from_token_payload(payload)
-    self.find payload["sub"]
-  end
+  has_secure_password
+  validates :username, presence: true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i.freeze
+  validates :email, presence: true,uniqueness: true, format: { with: VALID_EMAIL_REGEX }
 end
