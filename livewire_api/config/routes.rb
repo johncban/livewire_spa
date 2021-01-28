@@ -11,14 +11,11 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' } do
     namespace :v1 do
-      resources :users, only: [:index, :create, :destroy, :update, :show] 
-=begin
-        do 
-        resources :portfolio, only: [:index, :create, :destroy, :update, :show]  do 
-          resources :stocks, only: [:index, :create, :destroy, :update, :show]
-        end
+      resources :users, only: [:index, :create, :destroy, :update, :show] do 
+        resources :portfolios, only: [:index, :create, :destroy, :update, :show] #do
+          #resources :stocks, only: [:index, :create, :destroy, :update, :show]
+        #end
       end
-=end
     end
   end
 

@@ -1,34 +1,30 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :authenticate_user
+  #before_action :authenticate_user
+  before_action :authenticate_user, except: [:new]
   before_action :set_user, only: [:show, :update, :destroy]
 
   # GET /users
   def index
-    #@users = User.all
-    #p @users
-    #render json: @users
     @users = User.all
-    if current_user
-      render json: @users
+    session[:u_id] = current_user.id
+    p session[:u_id]
+    if @users.ids.include? current_user.id
+      render :json => {id:current_user.id, name: current_user.username}, status: 201
     else 
-      p "invalid user"
-    end    
+      render json: { errors: @users.errors.full_messages }, status: :unprocessible_entity
+    end
   end
 
   # GET /users/1
   def show
-    render json: @user
+    @user = User.find(params[:id])
+    
   end
 
   # POST /users
   def create
-    @user = User.new(user_params)
-
-    if @user.save
-      render json: @user, status: :created
-    else
-      render json: @user.errors, status: :unprocessable_entity
-    end
+    @user = User.create(user_params)
+    render json: @user, status: 201
   end
 
   # PATCH/PUT /users/1
@@ -56,4 +52,3 @@ class Api::V1::UsersController < ApplicationController
       params.require(:user).permit(:username, :email, :password, :password_confirmation)
     end
 end
-
