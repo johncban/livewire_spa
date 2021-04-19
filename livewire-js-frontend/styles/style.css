@@ -1,0 +1,116 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+.delete-note-link {
+  color: red;
+}
+
+#editable {
+  border: 1px solid blue;
+  padding: 20px;
+}
+
+#portfolio-content {
+  /* display: grid; */
+  align-content: center;
+  grid-template-columns: 1.5fr 1fr;
+  grid-gap: 10px;
+}
+
+
+
+
+.icon-block {
+  padding: 0 15px;
+}
+
+.icon-block .material-icons {
+    font-size: inherit;
+}
+
+.btn {
+  border-radius: 0%;
+}
+
+.btn_m_edit {
+  border-radius: 0%;
+  margin: 5px;
+  background-color:#3366ff;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+}
+
+.btn_m_del {
+  border-radius: 0%;
+  margin: 5px;
+  background-color:#FF0000;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: auto;
+}
+
+.portfolio-container-style {
+  height: 250px;
+  width: auto;
+  overflow: auto;
+}
+
+.new-p-form {
+  margin-bottom: 30px;
+}
+
+[contenteditable]:focus {
+  outline: 0px solid transparent;
+  border-bottom: 1px solid;
+}
+
+#current_user {
+  margin-top: 20px;
+  border-bottom: 2px solid red;
+}
+
+/* Materialize CSS Tab --- Begin */
+.tabs {
+  display:-webkit-flex;
+  display: -ms-flexbox;
+  display: flex
+}
+/* Materialize CSS Tab --- End */
+
+.card-margin {
+  margin-top: 2%;
+}
+
+
+
+@media only screen and (min-width: 601px) {
+.container {
+    width: 85%;
+  }
+}
+
+@media only screen and (min-width: 993px) {
+  .container {
+      width: 70%;
+  }
+}

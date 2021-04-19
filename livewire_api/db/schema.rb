@@ -21,12 +21,14 @@ ActiveRecord::Schema.define(version: 2020_12_01_115530) do
   end
 
   create_table "stocks", force: :cascade do |t|
-    t.string "stock"
+    t.string "stock_name"
     t.integer "quantity"
     t.integer "portfolio_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["portfolio_id"], name: "index_stocks_on_portfolio_id"
+    t.index ["user_id"], name: "index_stocks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -39,4 +41,5 @@ ActiveRecord::Schema.define(version: 2020_12_01_115530) do
 
   add_foreign_key "portfolios", "users"
   add_foreign_key "stocks", "portfolios"
+  add_foreign_key "stocks", "users"
 end
