@@ -10,7 +10,7 @@ class PortfoliosAdapter {
     //console.log(this.p_id)
     this.portfolioURL = `http://127.0.0.1:3000/api/v1/users/${parseInt(this.u_id)}`
     this.stockURL = `${this.portfolioURL}/portfolios/${this.p_id}/stocks`
-    //this.fetchLoadStocks()
+    this.fetchLoc()
   }
 
 
@@ -30,9 +30,9 @@ class PortfoliosAdapter {
     }
     return fetch(`http://127.0.0.1:3000/api/v1/users/${parseInt(this.u_id)}/portfolios`, config).then(res =>
       res.json()
-      .then(cp => {
-        console.log(cp)
-      }),
+        .then(cp => {
+          console.log(cp)
+        }),
       console.log(this.portfolioURL)
     )
   }
@@ -48,7 +48,7 @@ class PortfoliosAdapter {
         Authorization: `Bearer ${sessionStorage.getItem('jwt')}`
       },
     }
-    
+
     return fetch(`${this.portfolioURL}/portfolios`, config)
       .then(res => res.json())
   }
@@ -114,7 +114,7 @@ class PortfoliosAdapter {
     )
   }
 
-  
+
 
   fetchLoadStocks() {
     const config = {
@@ -124,7 +124,7 @@ class PortfoliosAdapter {
         Authorization: `Bearer ${sessionStorage.getItem('jwt')}`
       }
     }
-    
+
     return fetch(`${this.stockURL}`, config)
       .then(res => res.json())
   }
@@ -147,10 +147,10 @@ class PortfoliosAdapter {
     }
     return fetch(`${this.portfolioURL}/portfolios/${portfolio_id}/stocks`, config)
       .then(res => res.json()
-      .then(cs => {
-        console.log(cs)
-      }),      
-    )
+        .then(cs => {
+          console.log(cs)
+        }),
+      )
   }
 
 
@@ -188,5 +188,17 @@ class PortfoliosAdapter {
       res.json()
     )
   }
+
+
+
+
+  fetchLoc() {
+    fetch('https://ipapi.co/json/')
+      .then(function (res) {
+          res.json().then(jsonData => { console.log(jsonData) })
+        })
+        .catch(function (error) { console.log(error) })
+  }
+
 
 }

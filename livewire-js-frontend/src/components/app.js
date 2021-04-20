@@ -3,7 +3,6 @@ class App {
     this.usersignup = new UserSignUpForm()
     this.usersignin = new UserSignInForm()
     this.portfolios = new Portfolios()
-    //this.stocks = new Stocks()
   }
 }
 
@@ -16,6 +15,11 @@ function logOutClear() {
 function refreshPage() {
   location.reload()
 }
+
+
+
+
+
 
 
 // Materialize JS -- Begin

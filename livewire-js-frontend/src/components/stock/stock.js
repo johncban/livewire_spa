@@ -99,18 +99,15 @@ class Stock {
                         <hr>
                         
                         <div id="stock-info" class="stock-content" data-pid='${this.p_id}' data-sid='${this.s_id}'>
-                            <button class='btn_m_edit' data-action='edit-stock'>Edit</button>
-
-                            <button class='btn_m_del' data-action='delete-stock'>Delete</button>
-                    
+                            <!-- <button class='btn_m_edit' data-action='edit-stock'>Edit</button> -->
                             <h3 id="symbol-s">${this.s_name}</h3>
-                            
                             <h5 id="symbol-q">${this.s_quantity}</h5>
-                            
                         </div>
 
                         <h4 id="price">${this.latestPrice}</h4>
                         <h5 id="total">$${total}</h5>
+                        <hr>
+                        <button class='btn_m_del' data-action='delete-stock'>Delete</button>
                     </div>
                 
                     <div class="card-reveal">

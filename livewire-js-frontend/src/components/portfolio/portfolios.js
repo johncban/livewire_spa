@@ -27,15 +27,14 @@ class Portfolios {
     this.sItemSymbol = document.getElementById('new-s-item')
     this.sqItem = document.getElementById('quantity-s-item')
     this.psForm = document.getElementById('p-category')
-    //this.stockNode = document.getElementById('p-show')
     this.stockShowNode = document.getElementById('s-show')
 
-    this.bds = document.querySelector('div')
+    //this.bds = document.querySelector('div')
 
     this.sForm.addEventListener('submit', this.createStock.bind(this))
 
     this.stockShowNode.addEventListener('click', this.handleSClick.bind(this))
-    this.bds.addEventListener('blur', this.updateStock.bind(this), true)
+    //this.bds.addEventListener('blur', this.updateStock.bind(this), true)
   }
 
 
@@ -180,67 +179,29 @@ class Portfolios {
     location.reload(true)
   }
 
+  
   /*
-  createStock() {
-    const stock = this.sItemSymbol.value.toUpperCase()
-    const quantity = this.sqItem.value
-    const pcategory = this.psForm.value
-    new PortfoliosAdapter()
-      .createStock(stock, quantity, pcategory)
-      .then(sJSON => this.stocks.push(new Stock(sJSON)))
-      .then(this.pRender.bind(this))
-      .then(() => (this.sItemSymbol.value = ""))
-      .then(() => (this.sqItem.value = ""))  
-      .then(sp => {
-        console.log(sp)
-      })
-    location.reload(true)
-  }
-  */
-
-
   updateStock() {
-
     console.log(event.target.className === 'stock-content editable')
-
     if (event.target.className === 'stock-content editable') {
       const { target } = event
-
       document.getElementById("stock-info").removeAttribute("contentEditable")
       document.getElementById("stock-info").classList.remove('editable')
       document.getElementById("stock-info").contentEditable = "false"
-
 
       const info = document.getElementById("stock-info");
       let infoStock = info.getElementsByTagName("H3");
       let stockQuantity = info.getElementsByTagName("H5");
       console.log(target.innerHTML)
-
       const pId = target.dataset.pid
       const sId = target.dataset.sid
-      //const portfolio = this.findById(pId)
-
       target.classList.remove('editable')
       target.contentEditable = false
-
-      //console.log(target.classList.remove('editable'))
       console.log(target.contentEditable = false)
 
-      /*
-      this.adapter
-        .updateNoteComment(noteId, commentId, content)
-        .then(updatedComment => {
-          note.updateComment(updatedComment, noteId)
-          this.noteShowNode.innerHTML = note.renderShow()
-        })
-      */
+      
       const sname = infoStock[0].innerHTML
       const squantity = stockQuantity[0].innerHTML
-
-      //const sname = target.innerHTML
-
-      //const squantity = target.innerHTML
-
       new PortfoliosAdapter()
         .updateStock(pId, sId, sname, squantity)
         .then(updatedS => {
@@ -248,39 +209,10 @@ class Portfolios {
             s => s.s_id === updatedS.id
               ? new Stock(updatedS, pId) : s
           ), pId
-            //this.sRender()
-            
         })
     }
-
-    //if (event.target.parentElement.classList.contains('card-content')) {
-
-    /*
-    new PortfoliosAdapter()
-      .updateStock(p_id, sId, s_name, s_quantity)
-      .then(updatedS => {
-        this.stocks = this.stocks.map(
-          s => s.s_id === updatedS.id 
-          ? new Stock(updatedS, p_id) : s
-        ), p_id
-      })
-      */
-
-
-    /*
-    new PortfoliosAdapter().updateStock(s_name, s_quantity, sId).then(updatedS => {
-      this.stocks = this.stocks.map(
-        s => (s.s_id === updatedS.id ? new Stock(updatedS) : s)
-      )
-      //this.pRender()
-    })
-    */
-
-
   }
-
-
-
+  */
 
 
 
@@ -318,28 +250,9 @@ class Portfolios {
           portfolio.removeStock(s.sId)
         })
         location.reload(true)
-      /*
-      this.adapter.createComment(content, noteId).then(comment => {
-        note.addComment(new Comment(comment, noteId))
-        this.noteShowNode.innerHTML = note.renderShow()
-      })
-      */
-
     }
   }
   
-  /*
-  handleSClick() {
-    //console.log(event.target.parentElement)
-    if (event.target.dataset.action === 'delete-stock' && event.target.parentElement.classList.contains('card-content')) {
-      const sId = event.target.parentElement.dataset.sid
-      new PortfoliosAdapter().deleteStock(sId).then(ps => this.removeStock(ps))
-    } else if (event.target.dataset.action === 'edit-stock'); {
-      this.toggleEditStock()
-    }
-  }
-  */
-
   
   pHTML() {
     return this.portfolios.map(pr => pr.render()).join('')
