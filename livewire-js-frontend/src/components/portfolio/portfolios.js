@@ -161,13 +161,14 @@ class Portfolios {
 
   createStock() {
     event.preventDefault()
+    debugger
     const pId = this.psForm.value
     const stock = this.sItemSymbol.value.toUpperCase()
     const quantity = this.sqItem.value
     const pcategory = this.psForm.value
-    new PortfoliosAdapter().createStock(stock, quantity, pcategory, pId)
+    new PortfoliosAdapter().createStock(stock, quantity, pcategory)
       .then(stock => {
-        portfolio.addStock(new Stock(stock, quantity, pcategory, pId))
+        portfolio.addStock(new Stock(stock, quantity, pcategory))
       })
       .then(sp => {
         console.log(sp)
