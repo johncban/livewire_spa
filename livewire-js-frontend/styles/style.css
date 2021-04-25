@@ -84,7 +84,7 @@
   border-bottom: 1px solid;
 }
 
-#current_user {
+.user-info {
   margin-top: 20px;
   border-bottom: 2px solid red;
 }
@@ -100,6 +100,55 @@
 .card-margin {
   margin-top: 2%;
 }
+
+
+
+/* Weather CSS */
+.weather-bg {
+  background-image: url('../src/assets/img/r-bg.jpg');
+  color: black;
+}
+
+.bg-blur {
+	border: 1px solid rgba(255,255,255,.5);
+	border-radius: 5px;
+	box-sizing: border-box;
+	background: rgba(255,255,255,.5);
+	font: 150%/1.6 sans-serif;
+	box-shadow: -1px -1px 10px rgba(255,255,255,.3) inset,
+		2px 2px 20px rgba(0,0,0,.8);
+	text-shadow: 0 1px 1px rgba(255,255,255,.6);
+}
+
+.bg-blur:after {
+  content: '';
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	z-index: -1;
+	-webkit-filter: blur(5px);
+}
+
+
+/* Tabs */
+.tabs .tab a{
+  color: #000;
+} /*Black color to the text*/
+
+.tabs .tab a:hover {
+  background-color:#000;
+  color:#FDCB78;
+} /*Text color on hover*/
+
+.tabs .tab a.active {
+  color:#26a69a;
+  /*Custom Text Color While Active*/
+  background-color: rgba(38, 166, 154, 0.2);
+  /*Custom Background Color While Active*/
+} /*Background and text color when a tab is active*/
+
+.tabs .indicator {
+  background-color:#000;
+} /*Color of underline*/
 
 
 

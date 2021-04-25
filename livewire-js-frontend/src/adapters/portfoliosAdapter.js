@@ -3,14 +3,12 @@ class PortfoliosAdapter {
 
   constructor() {
     this.u_id = JSON.parse(window.localStorage.getItem('id'))
-    //this.p_id = JSON.parse(window.localStorage.getItem('pid'))
-    //this.p_id = window.localStorage.getItem('pid')
     this.p_id = window.localStorage.getItem('p_id')
     this.s_id = window.localStorage.getItem('s_id')
     //console.log(this.p_id)
     this.portfolioURL = `http://127.0.0.1:3000/api/v1/users/${parseInt(this.u_id)}`
     this.stockURL = `${this.portfolioURL}/portfolios/${this.p_id}/stocks`
-    this.fetchLoc()
+    //this.fetchLoc()
   }
 
 
@@ -191,7 +189,7 @@ class PortfoliosAdapter {
 
 
 
-
+  /*
   fetchLoc() {
     fetch('https://ipapi.co/json/')
       .then(function (res) {
@@ -199,6 +197,27 @@ class PortfoliosAdapter {
         })
         .catch(function (error) { console.log(error) })
   }
+
+  fetchWeather() {
+    var openWeatherMap = 'http://api.openweathermap.org/data/2.5/weather'
+    if (window.navigator && window.navigator.geolocation) {
+        window.navigator.geolocation.getCurrentPosition(function(position) {
+           fetch(openWeatherMap)
+            .then(function(res) { return res.json() })
+            .then(function(data) {
+              console.log(data)
+            })
+        })
+    }
+  }
+  */
+
+
+
+
+
+
+  
 
 
 }

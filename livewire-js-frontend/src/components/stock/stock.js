@@ -4,6 +4,7 @@ class Stock {
         this.s_quantity = sJSON.quantity
         this.s_id = sJSON.id
         this.p_id = sJSON.portfolio_id
+        //window.localStorage.setItem('p_id', this.p_id)
     }
 
     apiTokens() {
@@ -89,7 +90,7 @@ class Stock {
 
     renderStockDetails() {
         let total = this.s_quantity * this.latestPrice
-        window.localStorage.setItem('p_id', this.p_id)
+        //window.localStorage.setItem('p_id', this.p_id)
         return `<li data-sid='${this.s_id}' data-props='${JSON.stringify(this)} class='ps-element'>
                     <div class="card large">
                 

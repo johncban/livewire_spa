@@ -19,7 +19,7 @@ class UserSignUpForm {
             password: password.value, 
         }
 
-        new apiService().createUsers(usersData)
+        new usersAdapter().createUsers(usersData)
         e.target.reset()
 
         const signupUserContainer = document.querySelector("#sign-up-form")

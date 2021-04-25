@@ -2,7 +2,6 @@ class Api::V1::StocksController < ApplicationController
     before_action :authenticate_user
 
     def index
-        #@stocks = Stock.where(portfolio_id: params[:portfolio_id])
         @stocks = Stock.all
         render json: @stocks, only: %i[id stock_name quantity portfolio_id user_id], status: 201
     end
@@ -18,10 +17,6 @@ class Api::V1::StocksController < ApplicationController
         if stock.save
           render json: stock, status: 201
         end       
-=begin
-        @stock = Stock.create(stock_params)
-        render json: @stock, status: 201
-=end
     end
     
     def destroy
@@ -30,16 +25,10 @@ class Api::V1::StocksController < ApplicationController
         if stock.destroy
             render json: {stockId: stock.id}, status: 200
         end
-=begin
-        @stock = Stock.find(params[:id])
-        if (@stock.destroy)
-            render json: { message: "#{@stock.stock} is deleted." }, status: 200
-        end
-=end
     end
     
+=begin
     def update
-        
         portfolio = Portfolio.find(params[:portfolio_id])
         stock = portfolio.stocks.find(params[:id])
 
@@ -47,7 +36,7 @@ class Api::V1::StocksController < ApplicationController
             render json: stock, status: 200
         end
     end
-
+=end
     
     private
     

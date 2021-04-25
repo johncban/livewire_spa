@@ -1,7 +1,6 @@
 class Api::V1::PortfoliosController < ApplicationController
   before_action :authenticate_user
 
-  # skip_before_action :authorized, only: [:index]
 
   def index
     @portfolios = Portfolio.all.where(user_id: params['user_id'])
@@ -10,7 +9,6 @@ class Api::V1::PortfoliosController < ApplicationController
 
   def show
     @portfolios = Portfolio.find(params[:id])
-    
     render json: @portfolios # , include: [:stocks]
   end
 
@@ -29,19 +27,14 @@ class Api::V1::PortfoliosController < ApplicationController
        @portfolio.destroy
        render json: {id: @portfolio.id}, status: 200
     end
-
-=begin
-    if (@portfolio.destroy)
-      #render json: { message: "#{@portfolio.portfolio_name} Portfolio and Stocks are Deleted." }, status: 200
-      render json: {id: @portfolio.id}, status: 200
-    end
-=end
   end
 
   def update
     @portfolio = Portfolio.find(params[:id])
     render json: @portfolio, status: 200 if @portfolio.update(portfolio_params)
   end
+
+
 
   private
 

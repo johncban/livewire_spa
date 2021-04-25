@@ -10,8 +10,6 @@
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-
-
   <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 
@@ -19,7 +17,7 @@
   <div class="row">
     <div class="col s12">
       <ul class="tabs">
-        <li class="tab col s3"><a href="#inbox">Home</a></li>
+        <!-- <li class="tab col s3"><a href="#inbox">Home</a></li> -->
         <li class="tab col s3"><a class="active" href="#portfolio" onclick="refreshPage()">
             Portfolio</a>
         </li>
@@ -27,9 +25,14 @@
         <li class="tab col s3"><a href="#logout" onclick="logOutClear()">Logout</a></li>
       </ul>
     </div>
-    <h4 id="current_user"></h4>
-    <div id="inbox" class="col s12">Inbox</div>
-
+    <div class="user-info">
+      <h4 id="current_user"></h4>
+    </div>
+    <!--
+    <div id="inbox" class="col s12">
+      Home Profile
+    </div>
+    -->
     <div id="portfolio" class="col s12">
 
       <div id="modal1" class="modal">
@@ -172,24 +175,23 @@
 
 
 
-  <footer class="page-footer orange">
+  <footer class="page-footer weather-bg">
     <div class="container">
-      <div id="weather">
-        <div id="description"></div>
-        <h1 id="temp"></h1>
-        <div id="location"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">Company Bio</h5>
-        <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our
-          full time job. Any amount would help support and continue development on this project and is greatly
-          appreciated.</p>
-      </div>
 
+      <div id="weather" class="bg-blur">
+        <div class="center-align">
+          <canvas id="icon">
+          </canvas>
+          <div id="description"></div>
+          <h1 id="temp" class="grey-text text-darken-1"></h1>
+          <div id="location"></div>
+        </div>
+        <div class="row col s2">
+          <h5 id="weather-header" class="grey-text text-darken-3"></h5>
+      </div>
+      </div>
     </div>
-    </div>
+    <br>
     <div class="footer-copyright">
       <div class="container">
         Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
@@ -199,27 +201,30 @@
 
 
 
-  <script type="text/javascript" src="src/adapters/usersAdapter.js"></script>
 
+
+  <script type="text/javascript" src="src/adapters/usersAdapter.js"></script>
   <script type="text/javascript" src="src/components/portfolio/portfolio.js"></script>
   <script type="text/javascript" src="src/adapters/portfoliosAdapter.js"></script>
-  <script type="text/javascript" src="src/components/portfolio/portfolios.js"></script>
-
+  <script type="text/javascript" src="src/components/portfolio/portfolios.js?n=1"></script>
   <script type="text/javascript" src="src/components/stock/stock.js"></script>
 
 
   <script type="text/javascript" src="src/components/user/usersignupform.js"></script>
   <script type="text/javascript" src="src/components/user/usersigninform.js"></script>
   <script type="text/javascript" src="src/components/user/localprofile.js"></script>
+  <script type="text/javascript" src="src/components/libs/weather.js"></script>
+
 
   <script type="text/javascript" src="src/components/app.js"></script>
   <script type="text/javascript" src="src/index.js"></script>
- 
+
 
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="src/components/libs/skycons.js"></script>
 
 
 </body>

@@ -1,3 +1,5 @@
+#require 'net/http'
+
 module Api
     class ApplicationController < ActionController::API
       include Knock::Authenticable

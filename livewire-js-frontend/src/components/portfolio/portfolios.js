@@ -75,9 +75,6 @@ class Portfolios {
       .then(psJSON => this.portfolios.push(new Portfolio(psJSON)))
       .then(this.pRender.bind(this))
       .then(() => (this.pInput.value = ''))
-      .then(cp => {
-        console.log(cp)
-      })
     location.reload(true)
   }
 
@@ -164,8 +161,7 @@ class Portfolios {
 
   createStock() {
     event.preventDefault()
-    const pId = localStorage.getItem('p_id')
-    const portfolio = document.getElementById(pId)
+    const pId = this.psForm.value
     const stock = this.sItemSymbol.value.toUpperCase()
     const quantity = this.sqItem.value
     const pcategory = this.psForm.value
