@@ -173,7 +173,7 @@ class PortfoliosAdapter {
 
 
 
-  deleteStock(pId, sId) {
+  deleteStock(pId, id) {
     const config = {
       method: 'DELETE',
       headers: {
@@ -182,7 +182,7 @@ class PortfoliosAdapter {
         Authorization: `Bearer ${sessionStorage.getItem('jwt')}`
       }
     }
-    return fetch(`http://127.0.0.1:3000/api/v1/users/${parseInt(this.u_id)}/portfolios/${pId}/stocks/${sId}`, config).then(res =>
+    return fetch(`http://127.0.0.1:3000/api/v1/users/${parseInt(this.u_id)}/portfolios/${pId}/stocks/${id}`, config).then(res =>
       res.json()
     )
   }
