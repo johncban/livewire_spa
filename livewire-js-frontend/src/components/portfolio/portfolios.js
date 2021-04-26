@@ -111,11 +111,7 @@ class Portfolios {
     this.pRender()
   }
 
-  removeStock(delS) {
-    this.stocks = this.stocks.filter(s => s.id !== delS.sId)
-    //location.reload(true)
-    //this.pRender()
-  }
+ 
 
 
 
@@ -162,7 +158,7 @@ class Portfolios {
   createStock() {
     event.preventDefault()
     //debugger
-    const pId = this.psForm.value
+    //const pId = this.psForm.value
     const stock = this.sItemSymbol.value.toUpperCase()
     const quantity = this.sqItem.value
     const pcategory = this.psForm.value
@@ -233,20 +229,34 @@ class Portfolios {
     }
   }
 
+  removeStock(delS) {
+    this.stocks = this.stocks.filter(s => s.id !== delS.id)
+    //location.reload(true)
+    //this.pRender()
+  }
+
   
   handleSClick() {
+    //debugger
     console.log(event.target.dataset.action) //delete-stock
+    
     if (event.target.dataset.action === 'delete-stock') {
       const { parentElement: target } = event.target
+
+      //const info = document.querySelector('#stock-info')
       const pId = target.dataset.pid
       const sId = target.dataset.sid
       const portfolio = document.getElementById(pId)
+      
+      console.log(pId)
+      console.log(sId)
+      console.log(portfolio)
 
       new PortfoliosAdapter().deleteStock(pId, sId)
-        .then(s => {
-          portfolio.removeStock(s.sId)
-        })
-        location.reload(true)
+      .then(s => {
+        portfolio.removeStock(s.sId)
+      })
+      location.reload(true)
     }
   }
   
