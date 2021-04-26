@@ -25,6 +25,31 @@
 
 
 
+body {
+  width: auto;
+  height: 100%;
+  background-color: #000;
+  background-image: radial-gradient(circle at top right, rgba(121, 68, 154, 0.13),       transparent),
+    radial-gradient(circle at 20% 80%, rgba(41, 196, 255, 0.13), transparent)
+}
+.bkg-canvas {
+  z-index: -1;
+  padding: 0;
+  margin: auto;
+  display: block;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+
+
+
 .icon-block {
   padding: 0 15px;
 }
@@ -63,6 +88,16 @@
   font-size: 10px;
 }
 
+.input-field [type=text] {
+  color: #00795F;
+}
+.input-field [type=email] {
+  color: #00795F;
+}
+.input-field [type=password] {
+  color: #fff;
+}
+
 .container {
   margin: 0 auto;
   max-width: 1280px;
@@ -86,7 +121,8 @@
 
 .user-info {
   margin-top: 20px;
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid green;
+  color: #FFF;
 }
 
 /* Materialize CSS Tab --- Begin */
@@ -105,19 +141,16 @@
 
 /* Weather CSS */
 .weather-bg {
-  background-image: url('../src/assets/img/r-bg.jpg');
   color: black;
 }
 
 .bg-blur {
-	border: 1px solid rgba(255,255,255,.5);
 	border-radius: 5px;
 	box-sizing: border-box;
 	background: rgba(255,255,255,.5);
 	font: 150%/1.6 sans-serif;
 	box-shadow: -1px -1px 10px rgba(255,255,255,.3) inset,
 		2px 2px 20px rgba(0,0,0,.8);
-	text-shadow: 0 1px 1px rgba(255,255,255,.6);
 }
 
 .bg-blur:after {
@@ -130,25 +163,54 @@
 
 
 /* Tabs */
+.tabs {
+  background-color: transparent;
+}  
+
 .tabs .tab a{
-  color: #000;
+  color:#175F1C;
+  
+  background-color: rgba(0,0,0,.4);
 } /*Black color to the text*/
 
 .tabs .tab a:hover {
   background-color:#000;
-  color:#FDCB78;
+  color: #47B04B;
 } /*Text color on hover*/
 
 .tabs .tab a.active {
-  color:#26a69a;
+  color:#000;
   /*Custom Text Color While Active*/
-  background-color: rgba(38, 166, 154, 0.2);
+  background-color: rgba(4, 147, 114, .8);
   /*Custom Background Color While Active*/
 } /*Background and text color when a tab is active*/
 
 .tabs .indicator {
   background-color:#000;
 } /*Color of underline*/
+
+
+.news-anchor-title {
+  font-weight: bold;
+}
+
+
+.p-footer-bg-blur {
+  padding: 1%;
+	border-radius: 0x;
+	box-sizing: border-box;
+	background: rgba(255,255,255,.1);
+  color: #FFF;
+}
+
+.p-footer-bg-blur:after {
+  content: '';
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	z-index: -1;
+	-webkit-filter: blur(10px);
+}
+
 
 
 

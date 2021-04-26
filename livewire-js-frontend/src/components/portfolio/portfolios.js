@@ -78,32 +78,7 @@ class Portfolios {
     location.reload(true)
   }
 
-  toggleEditPortfolio() {
-    const {
-      parentElement: target
-    } = event.target
-    if (target.className == 'ps-element') {
-      console.log(target.classList)
-      target.classList.add('editable')
-      const pId = target.dataset.pid
-      //console.log(pId)
 
-      console.log(this.portfolios)
-
-      const portfolio = this.portfolios.find(p => p.id == pId)
-
-      console.log(portfolio)
-
-      //this.portfolios.find(p => console.log(p.id == pId))
-
-      target.contentEditable = true
-
-      console.log(portfolio.p_name)
-
-      target.innerHTML = portfolio.p_name
-      target.focus()
-    }
-  }
 
   removePortfolio(delRes) {
     this.portfolios = this.portfolios.filter(p => p.id !== delRes.pId)
@@ -157,7 +132,7 @@ class Portfolios {
 
   createStock() {
     event.preventDefault()
-    //debugger
+    debugger
     //const pId = this.psForm.value
     const stock = this.sItemSymbol.value.toUpperCase()
     const quantity = this.sqItem.value
@@ -173,39 +148,6 @@ class Portfolios {
   }
 
   
-  /*
-  updateStock() {
-    console.log(event.target.className === 'stock-content editable')
-    if (event.target.className === 'stock-content editable') {
-      const { target } = event
-      document.getElementById("stock-info").removeAttribute("contentEditable")
-      document.getElementById("stock-info").classList.remove('editable')
-      document.getElementById("stock-info").contentEditable = "false"
-
-      const info = document.getElementById("stock-info");
-      let infoStock = info.getElementsByTagName("H3");
-      let stockQuantity = info.getElementsByTagName("H5");
-      console.log(target.innerHTML)
-      const pId = target.dataset.pid
-      const sId = target.dataset.sid
-      target.classList.remove('editable')
-      target.contentEditable = false
-      console.log(target.contentEditable = false)
-
-      
-      const sname = infoStock[0].innerHTML
-      const squantity = stockQuantity[0].innerHTML
-      new PortfoliosAdapter()
-        .updateStock(pId, sId, sname, squantity)
-        .then(updatedS => {
-          this.stocks = this.stocks.map(
-            s => s.s_id === updatedS.id
-              ? new Stock(updatedS, pId) : s
-          ), pId
-        })
-    }
-  }
-  */
 
 
 
@@ -230,14 +172,12 @@ class Portfolios {
   }
 
   removeStock(delS) {
-    this.stocks = this.stocks.filter(s => s.id !== delS.id)
-    //location.reload(true)
-    //this.pRender()
+    this.stocks = this.stocks.filter(s => s.id !== delS.sId)
   }
 
   
   handleSClick() {
-    //debugger
+    debugger
     console.log(event.target.dataset.action) //delete-stock
     
     if (event.target.dataset.action === 'delete-stock') {
@@ -248,14 +188,9 @@ class Portfolios {
       const sId = target.dataset.sid
       const portfolio = document.getElementById(pId)
       
-      console.log(pId)
-      console.log(sId)
-      console.log(portfolio)
 
-      new PortfoliosAdapter().deleteStock(pId, sId)
-      .then(s => {
-        portfolio.removeStock(s.sId)
-      })
+
+      new PortfoliosAdapter().deleteStock(pId, sId).then(s => this.removeStock(s))
       location.reload(true)
     }
   }

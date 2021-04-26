@@ -16,19 +16,11 @@ class Portfolio {
     
   }
 
-  renderUpdateStockP() {
-    this.psUpdate = document.getElementById('p-update-category')
-    this.psUpdate.innerHTML = `test`
-  }
 
   addStock(newStock) {
     this.stocks = this.stocks.concat(newStock)
-    location.reload(true)
   }
 
-  removeStock(sId) {
-    this.stocks = this.stocks.filter(stock => stock.s_id !== sId)
-  }
 
 
   render() {
