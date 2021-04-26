@@ -161,7 +161,7 @@ class Portfolios {
 
   createStock() {
     event.preventDefault()
-    debugger
+    //debugger
     const pId = this.psForm.value
     const stock = this.sItemSymbol.value.toUpperCase()
     const quantity = this.sqItem.value
