@@ -90,16 +90,16 @@ class Stock {
 
     renderStockDetails() {
         let total = this.s_quantity * this.latestPrice
-        //window.localStorage.setItem('p_id', this.p_id)
-        return `<li data-sid='${this.s_id}' data-props='${JSON.stringify(this)} class='ps-element'>
+        window.localStorage.setItem('p_id', this.p_id)
+        return `<li data-props='${JSON.stringify(this)} class='ps-element'>
                     <div class="card large">
                 
-                    <div class="card-content">
+                    <div class="card-content" data-pid='${this.p_id}' data-sid='${this.s_id}'>
                         <span id="company-name" class="card-title activator grey-text text-darken-4">${this.companyName}<i
                             class="material-icons right">more_vert</i></span>
                         <hr>
                         
-                        <div id="stock-info" class="stock-content" data-pid='${this.p_id}' data-sid='${this.s_id}'>
+                        <div id="stock-info" class="stock-content">
                             <!-- <button class='btn_m_edit' data-action='edit-stock'>Edit</button> -->
                             <h3 id="symbol-s">${this.s_name}</h3>
                             <h5 id="symbol-q">${this.s_quantity}</h5>
