@@ -132,7 +132,7 @@ class Portfolios {
 
   createStock() {
     event.preventDefault()
-    debugger
+    //debugger
     //const pId = this.psForm.value
     const stock = this.sItemSymbol.value.toUpperCase()
     const quantity = this.sqItem.value
@@ -177,7 +177,7 @@ class Portfolios {
 
   
   handleSClick() {
-    debugger
+    //debugger
     console.log(event.target.dataset.action) //delete-stock
     
     if (event.target.dataset.action === 'delete-stock') {
