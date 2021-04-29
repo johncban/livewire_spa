@@ -78,6 +78,33 @@ class Portfolios {
     location.reload(true)
   }
 
+  toggleEditPortfolio() {
+    const {
+      parentElement: target
+    } = event.target
+    if (target.className == 'ps-element') {
+      console.log(target.classList)
+      target.classList.add('editable')
+      const pId = target.dataset.pid
+      //console.log(pId)
+
+      //console.log(this.portfolios)
+
+      const portfolio = this.portfolios.find(p => p.id == pId)
+
+      //console.log(portfolio)
+
+      //this.portfolios.find(p => console.log(p.id == pId))
+
+      target.contentEditable = true
+
+      //console.log(portfolio.p_name)
+
+      target.innerHTML = portfolio.p_name
+      target.focus()
+    }
+  }
+
 
 
   removePortfolio(delRes) {
@@ -92,34 +119,6 @@ class Portfolios {
 
 
   /** STOCKS SECTION */
-  toggleEditStock() {
-    const { parentElement: target } = event.target
-
-    const info = document.getElementById("stock-info");
-    let infoStock = info.getElementsByTagName("H3");
-    let stockQuantity = info.getElementsByTagName("H5");
-
-
-    
-
-
-    const pId = target.dataset.pid
-    const sId = target.dataset.sid
-    const portfolio = this.portfolios.find(p => p.id == pId)
-    const stock = this.stocks.find(s => s.s_id === +sId)
-    
-
-
-    target.classList.add('editable')
-    target.contentEditable = true
-    infoStock[0].innerHTML = stock.s_name
-    stockQuantity[0].innerHTML = stock.s_quantity
-    //target.innerHTML = stock.s_name
-    //target.innerHTML = stock.s_quantity
-    target.focus()
-  }
-
-
   fetchStocks() {
     new PortfoliosAdapter()
       .fetchLoadStocks()
@@ -188,7 +187,6 @@ class Portfolios {
       const sId = target.dataset.sid
       const portfolio = document.getElementById(pId)
       
-
 
       new PortfoliosAdapter().deleteStock(pId, sId).then(s => this.removeStock(s))
       location.reload(true)
