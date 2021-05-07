@@ -8,6 +8,9 @@ __Major Specs__
 - __[Vanilla Javascript](http://vanilla-js.com/)__ - LiveWire Front End.
 
 ---
+## To Install and Run
+Navigate from livewire_spa to livewire_api then type ```bundle install```.
+Open livewire_frontend then open ```index.html``` to login or sign-up.
 
 ### Features
 * Let the user sign-up and log-in.
